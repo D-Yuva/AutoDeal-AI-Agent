@@ -16,7 +16,7 @@ llm_config = {
 }
 
 llm_config_local = {"config_list": [{
-    "model": "meta-llama-3.1-8b-instruct",
+    "model": "llama-3.2-3b-instruct",
     "base_url": "http://localhost:1234/v1" 
 }]}
 
@@ -96,7 +96,7 @@ def validate_deal(messages):
     if last_buyer_offer and last_seller_offer:
         if abs(last_buyer_offer - last_seller_offer) <= 50:  # $50 difference threshold
             return "DEAL_AGREED"
-        elif len(messages) > 10:  # Maximum rounds of negotiation
+        elif len(messages) > 3:  # Maximum rounds of negotiation
             return "NO_DEAL"
     return "CONTINUE"
 
