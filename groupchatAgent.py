@@ -100,7 +100,7 @@ buyer = autogen.AssistantAgent(
 user_proxy = autogen.UserProxyAgent(
     name="user_proxy",
     code_execution_config={"use_docker": False},
-    is_termination_msg=validate_deal,
+    is_termination_msg=lambda x: "DEAL_AGREED" in x.get("content", "") or "NO_DEAL" in x.get("content", ""),
     human_input_mode="NEVER"
 )
 
@@ -117,7 +117,7 @@ manager = autogen.GroupChatManager(
     groupchat=groupchat,
     code_execution_config={"use_docker": False},
     llm_config=llm_config_local, 
-    is_termination_msg=validate_deal
+    is_termination_msg=lambda x: "DEAL_AGREED" in x.get("content", "") or "NO_DEAL" in x.get("content", ""),
 )
 
 # Start the negotiation
