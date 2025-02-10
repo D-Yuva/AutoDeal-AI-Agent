@@ -14,8 +14,9 @@ llm_config = {
 
 # Configuration for the LLM
 llm_config_local = {"config_list": [{
-    "model": "llama-3.2-3b-instruct",
-    "base_url": "http://localhost:1234/v1" 
+    "model": "llama-3.3-70b-versatile",
+    "api_key": "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",
+    "base_url": "https://api.groq.com/openai/v1"
 }]}
 
 def validate_deal(message):
