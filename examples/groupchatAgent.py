@@ -108,12 +108,10 @@ manager = autogen.GroupChatManager(
 
 # Example Product Details
 product_details = """
-Product: iPhone 13 Pro (256GB, Graphite)
+Product: iPhone 16 Pro (256GB, Graphite)
 Condition: Excellent, 1 year old
 Original Price: $999
-Initial Asking Price: $750
-Maximum Acceptable Price for Buyer: $725
-Includes: Original box, charger, warranty until 2024
+Includes: Original box, charger, warranty until 2026
 """
 
 # Start Negotiation with clear termination rules
