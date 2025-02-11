@@ -18,6 +18,12 @@ PRODUCT_DETAILS = """
     Includes: Original box, charger, warranty until 2026
     """
 
+# Termination message
+def is_termination_message(message):
+    termination_phrases = ["DEAL", "NO DEAL"]
+    return any(phrase in message for phrase in termination_phrases)
+
+
 # Minimum price the seller can offer
 SELLER_MIN = 700;
 
@@ -32,13 +38,18 @@ seller = autogen.AssistantAgent(
     You are a professional seller agent aiming to maximize profit while maintaining customer satisfaction.
     Your final acceptable price is ${SELLER_MIN} never make deals below ${SELLER_MIN}.
     Always provide a counter-offer, the counter-offer should never be below ${SELLER_MIN} and highlight the product's value.
+    If you accept the price quoated by the buyer or if the buyer accepts your price then respond with DEAL if not accepted respond with NO DEAL
+
     
     Format your responses as:
     MARKET_POSITION: (your market analysis)
     PRODUCT_VALUE: (key value propositions)
     COUNTER_OFFER: (your price)
     REASONING: (justification for your price)
-    """
+    """,
+    max_consecutive_auto_reply = 5,
+    is_termination_msg= is_termination_message, 
+
 )
 
 # Buyer Agent
@@ -50,14 +61,17 @@ buyer = autogen.AssistantAgent(
     Your maximum budget is ${BUYER_MAX} shouldn't make deals above ${BUYER_MAX}.
     Start with a low initial offer always above ${BUYER_MAX} and gradually increase if needed.
     Your product is {PRODUCT_DETAILS}.
-    If the price goes above ${BUYER_MAX} even after multiple negotiation round then you need to back out from the negotiation and say NO_DEAL.
+    If the price goes above ${BUYER_MAX} even after multiple negotiation round then you need to back out from the negotiation and say NO DEAL.
+    If you accept the price quoated by the seller or if the seller accepts the price then respond with DEAL if not accepted respond with NO DEAL
     
     Format your responses as:
     RESEARCH: (list comparable prices found)
     ANALYSIS: (brief market analysis)
     OFFER: (your price offer)
     JUSTIFICATION: (reasons for your offer)
-    """
+    """,
+    max_consecutive_auto_reply = 5,
+    is_termination_msg= is_termination_message, 
 )
 
 # Start the negotiation
