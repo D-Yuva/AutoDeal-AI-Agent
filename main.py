@@ -121,7 +121,7 @@ Strategy:
 4. Increase your offer in small steps but **never exceed the MRP**.
 
 Termination Rules:
-- If the seller agrees to a reasonable price, confirm: "DEAL DONE at $X".
+- If the seller agrees to a reasonable price, confirm: "DEAL DONE at $X only if the price is higher than ${SELLER_MIN_PRICE}".
 - If the seller refuses after 5 rounds, say: "DEAL NOT DONE".
 """
 
