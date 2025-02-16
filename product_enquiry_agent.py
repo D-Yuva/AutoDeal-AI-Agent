@@ -41,7 +41,13 @@ Consider the following aspects:
 """
 
 # Initiate the chat with the human proxy to gather product details
-product_enquiry_agent.initiate_chat(
+response = product_enquiry_agent.initiate_chat(
     human_proxy,
     message=initial_message,
 )
+
+# Capture the final recommendations
+PRODUCT_DETAILS = response  # Store the final response containing product recommendations
+
+# Output the captured product details
+print("Final Product Recommendations:", PRODUCT_DETAILS)
