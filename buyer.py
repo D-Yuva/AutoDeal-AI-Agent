@@ -46,3 +46,4 @@ buyer_agent = autogen.AssistantAgent(
     max_consecutive_auto_reply=5,
     is_termination_msg=is_termination_message,
 )
+
