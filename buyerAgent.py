@@ -1,5 +1,6 @@
 import autogen
 import os
+from productAgent import PRODUCT_DETAILS
 
 # LLM Configuration
 llm_config_local = {
@@ -12,14 +13,6 @@ llm_config_local = {
 
 # Buyer-specific configurations
 BUYER_MAX = 800  # Maximum budget
-
-# Product Details - can be customized here if needed
-PRODUCT_DETAILS = """
-Product: iPhone 13 Pro (256GB, Graphite)
-Condition: Excellent, 1 year old
-Original Price: $999
-Includes: Original box, charger, warranty until 2026
-"""
 
 def is_termination_message(message):
     termination_phrases = ["DEAL", "NO DEAL"]
