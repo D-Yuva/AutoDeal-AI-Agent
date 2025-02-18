@@ -1,5 +1,6 @@
 import autogen
 import os
+from productEnquiryAgent import PRODUCT_DETAILS
 
 # LLM Configuration
 llm_config_local = {
@@ -9,9 +10,6 @@ llm_config_local = {
         "base_url": "https://api.groq.com/openai/v1"
     }]
 }
-
-# Seller-specific configurations
-SELLER_MIN = 700  # Minimum acceptable price
 
 def is_termination_message(message):
     termination_phrases = ["DEAL", "NO DEAL"]
@@ -24,8 +22,9 @@ seller_agent = autogen.AssistantAgent(
     system_message=f"""
     You are a professional seller agent aiming to maximize profit while maintaining customer satisfaction.
     The product you are going to bargain {PRODUCT_DETAILS}.
-    Your final acceptable price is ${SELLER_MIN} never make deals below ${SELLER_MIN}.
-    Always provide a counter-offer, the counter-offer should never be below ${SELLER_MIN} and highlight the product's value.
+    Fixate a minimum price depending on your market research, and be a bit flexible with the minimum price.
+    Always provide a counter-offer, the counter-offer should never be much below than the minimum price and highlight the product's value.
+    You have to sell the product for the highest price and should convince the buyer agent to make the deal, the highest price must be below the selling price or mrp. 
     If you accept the price quoated by the buyer or if the seller accepts your price then respond with DEAL if not accepted respond with NO DEAL
 
     Format your responses as:

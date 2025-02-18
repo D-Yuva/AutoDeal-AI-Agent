@@ -1,15 +1,8 @@
 import autogen
 import os
-from seller import seller_agent
-from buyer import buyer_agent
-
-# Product Details for negotiation
-PRODUCT_DETAILS = """
-Product: iPhone 13 Pro (256GB, Graphite)
-Condition: Excellent, 1 year old
-Original Price: $999
-Includes: Original box, charger, warranty until 2026
-"""
+from sellerAgent import seller_agent
+from buyerAgent import buyer_agent
+from productEnquiryAgent import PRODUCT_DETAILS
 
 def main():
     # Start negotiation

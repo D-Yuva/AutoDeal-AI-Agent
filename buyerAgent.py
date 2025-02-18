@@ -1,6 +1,7 @@
 import autogen
 import os
-from productAgent import PRODUCT_DETAILS
+from productEnquiryAgent import PRODUCT_DETAILS
+from sellerAgent import seller_agent
 
 # LLM Configuration
 llm_config_local = {
@@ -39,4 +40,3 @@ buyer_agent = autogen.AssistantAgent(
     max_consecutive_auto_reply=5,
     is_termination_msg=is_termination_message,
 )
-
