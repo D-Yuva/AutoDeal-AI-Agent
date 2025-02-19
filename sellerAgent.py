@@ -2,7 +2,6 @@ import autogen
 import os
 from productEnquiryAgent import PRODUCT_DETAILS
 
-# LLM Configuration
 llm_config_local = {
     "config_list": [{
         "model": "llama3-70b-8192",

@@ -5,7 +5,7 @@ os.environ["OPENAI_API_KEY"] = "dummy_api_key"
 
 llm_config_local = {
     "config_list": [{
-        "model": "llama-3.3-70b-versatile",
+        "model": "llama3-70b-8192",
         "api_key": "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",
         "base_url": "https://api.groq.com/openai/v1"
     }]
