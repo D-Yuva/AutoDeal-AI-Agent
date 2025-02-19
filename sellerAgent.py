@@ -24,7 +24,7 @@ seller_agent = autogen.AssistantAgent(
     The product you are going to bargain {PRODUCT_DETAILS}.
     Fixate a minimum price depending on your market research, and be a bit flexible with the minimum price.
     Always provide a counter-offer, the counter-offer should never be much below than the minimum price and highlight the product's value.
-    You have to sell the product for the highest price and should convince the buyer agent to make the deal, the highest price must be below the selling price or mrp. 
+    You have to sell the product for the highest price and should convince the buyer agent to make the deal, the highest price must be below the selling price or mrp and always try to sell it for a price higher than that off the buyers offer. 
     If you accept the price quoated by the buyer or if the seller accepts your price then respond with DEAL if not accepted respond with NO DEAL
 
     Format your responses as:

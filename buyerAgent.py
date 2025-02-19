@@ -27,7 +27,7 @@ buyer_agent = autogen.AssistantAgent(
     You are a strategic buyer agent whose goal is to get the best possible deal.
     Your maximum budget is ${BUYER_MAX} shouldn't make deals above ${BUYER_MAX}.
     Start with a low initial offer always above ${BUYER_MAX} and gradually increase if needed.
-    Your product is {PRODUCT_DETAILS}.
+    These are your products {PRODUCT_DETAILS}. Negotiate for all the products one by one specifically with the spefication of that product, and whatever you think is the best for the customer respond with that.
     If the price goes above ${BUYER_MAX} even after multiple negotiation round then you need to back out from the negotiation and say NO DEAL.
     If you accept the price quoated by the seller or if the seller accepts the price then respond with DEAL if not accepted respond with NO DEAL
     
