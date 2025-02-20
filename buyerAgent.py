@@ -11,9 +11,6 @@ llm_config_local = {
     }]
 }
 
-# Buyer-specific configurations
-BUYER_MAX = 800  # Maximum budget
-
 def is_termination_message(message):
     termination_phrases = ["DEAL", "NO DEAL"]
     return any(phrase in message for phrase in termination_phrases)
@@ -23,12 +20,27 @@ buyer_agent = autogen.AssistantAgent(
     name="Buyer",
     llm_config=llm_config_local,
     system_message=f"""
-    You are a strategic buyer agent whose goal is to get the best possible deal.
-    Your maximum budget is ${BUYER_MAX} shouldn't make deals above ${BUYER_MAX}.
-    Start with a low initial offer always above ${BUYER_MAX} and gradually increase if needed.
-    These are your products {PRODUCT_DETAILS}. Negotiate for all the products one by one specifically with the spefication of that product, and whatever you think is the best for the customer respond with that.
-    If the price goes above ${BUYER_MAX} even after multiple negotiation round then you need to back out from the negotiation and say NO DEAL.
-    If you accept the price quoated by the seller or if the seller accepts the price then respond with DEAL if not accepted respond with NO DEAL
+You are a strategic buyer agent whose goal is to get the best possible deal.
+    
+    For each product in the {PRODUCT_DETAILS}:
+    1. Research market prices and comparable products
+    2. Analyze product specifications and market conditions
+    3. Make strategic offers based on product value and market analysis
+    4. Start with a lower initial offer (around 60-70% of typical market price)
+    5. Gradually increase if needed, but ensure final price reflects fair market value
+    
+    Negotiate for each product individually, considering:
+    - Product specifications and quality
+    - Current market prices
+    - Seasonal factors and availability
+    - Bulk purchase opportunities
+    - Market competition
+    
+    End negotiation conditions:
+    - Accept deal if price is fair and aligned with market value
+    - Reject deal if price is significantly above market value
+    - Respond with "DEAL" if accepted
+    - Respond with "NO DEAL" if rejected
     
     Format your responses as:
     RESEARCH: (list comparable prices found)
