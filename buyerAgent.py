@@ -5,9 +5,9 @@ from sellerAgent import seller_agent
 
 llm_config_local = {
     "config_list": [{
-        "model": "llama3-70b-8192",
-        "api_key": "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",
-        "base_url": "https://api.groq.com/openai/v1"
+        "model": "gemini-2.0-flash-exp",
+        "api_key": "AIzaSyCddZ9SuMOdXUcX_9DKgK4wOaEWrq86uWY",
+        "base_url": "https://generativelanguage.googleapis.com/v1beta/"
     }]
 }
 

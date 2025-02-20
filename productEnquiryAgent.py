@@ -1,12 +1,13 @@
 import os
 from autogen import ConversableAgent
+from dotenv import load_dotenv
 
 os.environ["OPENAI_API_KEY"] = "dummy_api_key"
 
 llm_config_local = {
     "config_list": [{
         "model": "gemini-2.0-flash-exp",
-        "api_key": "GEMINI_API_KEY",
+        "api_key": "AIzaSyCddZ9SuMOdXUcX_9DKgK4wOaEWrq86uWY",
         "base_url": "https://generativelanguage.googleapis.com/v1beta/"
     }]
 }
