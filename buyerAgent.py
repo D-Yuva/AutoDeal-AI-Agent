@@ -2,11 +2,15 @@ import autogen
 import os
 from productEnquiryAgent import PRODUCT_DETAILS
 from sellerAgent import seller_agent
+from dotenv import load_dotenv
+
+load_dotenv()
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
 llm_config_local = {
     "config_list": [{
         "model": "gemini-2.0-flash-exp",
-        "api_key": "AIzaSyCddZ9SuMOdXUcX_9DKgK4wOaEWrq86uWY",
+        "api_key": GEMINI_API_KEY,
         "base_url": "https://generativelanguage.googleapis.com/v1beta/"
     }]
 }
