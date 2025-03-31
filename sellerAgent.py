@@ -1,6 +1,7 @@
 import autogen
 import os
 from productEnquiryAgent import PRODUCT_DETAILS
+from dotenv import load_dotenv
 
 load_dotenv()
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
