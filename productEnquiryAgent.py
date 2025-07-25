@@ -6,7 +6,7 @@ os.environ["OPENAI_API_KEY"] = "dummy_api_key"
 llm_config_local = {
     "config_list": [{
         "model": "gemini-2.0-flash-exp",
-        "api_key": "AIzaSyCddZ9SuMOdXUcX_9DKgK4wOaEWrq86uWY",
+        "api_key": "YOUR_API_KEY",
         "base_url": "https://generativelanguage.googleapis.com/v1beta/"
     }]
 }
